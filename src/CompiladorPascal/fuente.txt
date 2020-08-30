@@ -1,0 +1,19 @@
+program ejemplo1;
+ uses crt;
+ var num:integer;
+ var tecla:char;
+begin
+ clrscr;
+ write ('escriba un numero entero:'); readln (num);
+ writeln ('');
+ if num <= 100 then
+	begin
+		writeln ('el numero que ha escrito es menor o igual que 100');
+	end
+ else 
+	begin
+		writeln ('el numero que ha escrito es mayor de 100');
+	end;
+    writeln('Presione tecla para terminar'); 
+	tecla := readkey;
+end.

@@ -1,0 +1,56 @@
+package pascal;
+import java_cup.runtime.*;
+
+parser code {:
+    public String errsin = "";
+    public void syntax_error (Symbol token){
+        errsin += ("\nError de sintaxis en pos " + (token.left+1) + "," + (token.right+1));
+        throw new UnsupportedOperationException ("\nError de sintaxis en pos " + (token.left+1) + "," + (token.right+1));
+       
+    }
+:};
+
+terminal program, fin, uses, crt, var, id, num, coma, tipo, inte, chare, begin, clrscr, write, writeln, pi, pd, texto, readln, igualdad, ifF, then, elseF, readkey, end, punto, mayorQ, menorQ, igual, mayorOI, menorOI;
+non terminal A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R;
+
+A ::= program id fin uses crt fin B begin clrscr fin G Q end punto;
+
+B ::= C | B C;
+
+C ::= var D tipo F fin;
+
+D ::= E | D coma E;
+
+E ::= id;
+
+F ::= inte | chare;
+
+G ::= H | G H;
+
+H ::= I | L | O | P;
+
+
+I ::= ifF J R J then begin G end K;
+
+J ::= id | num;
+
+K ::= elseF begin G end fin | fin;
+
+
+L ::= M pi N pd fin;
+
+M ::= write | writeln;
+
+N ::= id | texto;
+
+
+O ::= id igualdad id fin;
+
+
+P ::= readln pi id pd fin;
+
+
+Q ::= id igualdad readkey fin;
+
+
+R ::= mayorQ | menorQ | igual | mayorOI | menorOI;
